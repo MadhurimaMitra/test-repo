@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export const SkinToolSpotlightSection = (): JSX.Element => {
   return (
-    <section className="flex w-full items-center gap-[50px] py-8 px-4">
+    <section className="flex w-full items-center justify-center gap-[70px] py-16 px-6">
       {/* Text content column */}
       <div className="flex flex-col flex-shrink-0 w-[426px] items-start gap-[11px]">
         <h2 className="mt-[-1.00px] [text-shadow:0px_1px_3px_#00000040] [font-family:'Poppins',Helvetica] font-medium text-[#564130] text-[40px] tracking-[0] leading-[50.2px] whitespace-nowrap">

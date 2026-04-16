@@ -29,7 +29,7 @@ const bestsellerProducts = [
 
 export const BestsellerGridSection = (): JSX.Element => {
   return (
-    <section className="w-full flex flex-row items-start gap-[50px] py-4">
+    <section className="w-full flex flex-row flex-wrap items-start justify-center gap-[50px] px-6">
       {bestsellerProducts.map((product) => (
         <Card
           key={product.id}

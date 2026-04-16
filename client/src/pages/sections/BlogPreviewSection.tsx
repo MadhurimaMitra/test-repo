@@ -1,6 +1,6 @@
 export const BlogPreviewSection = (): JSX.Element => {
   return (
-    <section className="flex flex-col items-center gap-[52px] w-full py-8">
+    <section className="flex flex-col items-center gap-[52px] w-full py-20 px-6">
       {/* Section heading */}
       <h2 className="w-fit mt-[-1.00px] [text-shadow:0px_1px_3px_#00000040] italic text-[#564130] text-[32px] [font-family:'Poppins',Helvetica] font-normal tracking-[0] leading-[normal]">
         Our Blogs

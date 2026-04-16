@@ -7,13 +7,23 @@ import NotFound from "@/pages/not-found";
 
 import { FinalLanding } from "@/pages/FinalLanding";
 import { BodycarePage } from "@/pages/BodycarePage";
+import { GiftSetsPage } from "@/pages/GiftSetsPage";
+import { GroomingPage } from "@/pages/GroomingPage";
+import { HaircarePage } from "@/pages/HaircarePage";
+import { ShopPage } from "@/pages/ShopPage";
+import { SkincarePage } from "@/pages/SkincarePage";
 
 function Router() {
   return (
     <Switch>
       {/* Add pages below */}
       <Route path="/" component={FinalLanding} />
+      <Route path="/shop" component={ShopPage} />
       <Route path="/bodycare" component={BodycarePage} />
+      <Route path="/skincare" component={SkincarePage} />
+      <Route path="/grooming" component={GroomingPage} />
+      <Route path="/haircare" component={HaircarePage} />
+      <Route path="/giftsets" component={GiftSetsPage} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

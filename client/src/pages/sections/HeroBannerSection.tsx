@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 export const HeroBannerSection = (): JSX.Element => {
   return (
     <section className="relative w-full h-[876px] rounded-[0px_0px_500px_0px] overflow-hidden shadow-[0px_4px_4px_#00000040]">
@@ -14,7 +16,11 @@ export const HeroBannerSection = (): JSX.Element => {
           Gender-Inclusive Beauty
         </h1>
         {/* SHOP NOW link with arrow */}
-        <div className="mt-[45px] flex items-center gap-2 w-[129px] h-6 cursor-pointer">
+        <Link
+          href="/shop"
+          className="mt-[45px] flex items-center gap-2 w-[129px] h-6 cursor-pointer"
+          data-testid="link-shop-now"
+        >
           <span className="[font-family:'Poppins',Helvetica] font-medium italic text-white text-base tracking-[0] leading-[normal]">
             SHOP NOW
           </span>
@@ -23,7 +29,7 @@ export const HeroBannerSection = (): JSX.Element => {
             alt="Vector"
             src="/figmaAssets/vector-4.svg"
           />
-        </div>
+        </Link>
       </div>
     </section>
   );

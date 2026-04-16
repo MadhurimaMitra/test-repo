@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export const PremiumDeviceSpotlightSection = (): JSX.Element => {
   return (
-    <section className="flex w-full items-center gap-[50px]">
+    <section className="flex w-full items-center justify-center gap-[70px] px-6 py-8">
       {/* Product image with rounded bottom-right corner */}
       <div
         className="relative flex-shrink-0 w-[715px] h-[794px] rounded-[0px_0px_400px_0px]"

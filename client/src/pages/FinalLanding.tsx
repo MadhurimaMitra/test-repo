@@ -24,7 +24,7 @@ export const FinalLanding = (): JSX.Element => {
         <HeroBannerSection />
       </div>
       {/* "Premium self care solutions" heading */}
-      <div className="w-full flex justify-center py-6">
+      <div className="w-full flex justify-center pt-16 pb-10">
         <span className="[text-shadow:0px_1px_3px_#00000040] [font-family:'Poppins',Helvetica] font-normal italic text-[#564130] text-[32px] tracking-[0] leading-[normal]">
           Premium self care solutions
         </span>
@@ -32,9 +32,11 @@ export const FinalLanding = (): JSX.Element => {
       {/* Category Showcase */}
       <CategoryShowcaseSection />
       {/* Benefit Highlights */}
-      <BenefitHighlightsSection />
+      <div className="mt-20">
+        <BenefitHighlightsSection />
+      </div>
       {/* "Bestsellers" heading */}
-      <div className="w-full flex justify-center py-6">
+      <div className="w-full flex justify-center pt-20 pb-10">
         <span className="[text-shadow:0px_1px_3px_#00000040] [font-family:'Poppins',Helvetica] font-normal italic text-[#564130] text-5xl tracking-[0] leading-[normal]">
           Bestsellers
         </span>
@@ -42,7 +44,7 @@ export const FinalLanding = (): JSX.Element => {
       {/* Bestseller Grid */}
       <BestsellerGridSection />
       {/* VIEW ALL divider */}
-      <div className="w-full flex items-center justify-center py-4">
+      <div className="w-full flex items-center justify-center pt-10 pb-20">
         <div className="flex items-center gap-4 w-[410px]">
           <img
             className="flex-1 h-px"

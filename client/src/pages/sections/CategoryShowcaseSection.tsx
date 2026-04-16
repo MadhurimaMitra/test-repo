@@ -1,33 +1,27 @@
-import { Link } from "wouter";
-
 const categories = [
   {
     type: "div",
     imgSrc: "/figmaAssets/dsc00650-1.svg",
     imgAlt: "Dsc",
     label: "BODYCARE",
-    href: "/bodycare",
   },
   {
     type: "img",
     imgSrc: "/figmaAssets/frame-239.svg",
     imgAlt: "Frame",
     label: "SKINCARE",
-    href: null,
   },
   {
     type: "div",
     imgSrc: "/figmaAssets/dsc00858-1.svg",
     imgAlt: "Dsc",
     label: "GROOMING",
-    href: null,
   },
   {
     type: "img",
     imgSrc: "/figmaAssets/frame-241.svg",
     imgAlt: "Frame",
     label: "HAIRCARE",
-    href: null,
   },
 ];
 
@@ -61,25 +55,14 @@ export const CategoryShowcaseSection = (): JSX.Element => {
   );
 
   return (
-    <section className="flex flex-wrap w-full items-start gap-[42px]">
+    <section className="flex flex-wrap w-full items-start justify-center gap-[42px] px-6">
       {categories.map((category, index) => (
-        category.href ? (
-          <Link
-            key={index}
-            href={category.href}
-            className="inline-flex flex-col items-center gap-5 flex-[0_0_auto] cursor-pointer group"
-            data-testid={`link-category-${category.label.toLowerCase()}`}
-          >
-            {renderCategoryContent(category)}
-          </Link>
-        ) : (
-          <div
-            key={index}
-            className="inline-flex flex-col items-center gap-5 flex-[0_0_auto]"
-          >
-            {renderCategoryContent(category)}
-          </div>
-        )
+        <div
+          key={index}
+          className="inline-flex flex-col items-center gap-5 flex-[0_0_auto]"
+        >
+          {renderCategoryContent(category)}
+        </div>
       ))}
     </section>
   );

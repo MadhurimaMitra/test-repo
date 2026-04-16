@@ -1,20 +1,19 @@
-import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "BODYCARE", href: "/bodycare" },
-  { label: "SKINCARE" },
-  { label: "GROOMING" },
-  { label: "HAIRCARE" },
-  { label: "GIFT SETS" },
+  { label: "SKINCARE", href: "/skincare" },
+  { label: "GROOMING", href: "/grooming" },
+  { label: "HAIRCARE", href: "/haircare" },
+  { label: "GIFT SETS", href: "/giftsets" },
 ];
 
 export const TopNavigationSection = (): JSX.Element => {
-  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [location] = useLocation();
 
   return (
-    <nav className="w-full h-[106px] flex items-center bg-white shadow-[0px_4px_8.3px_#00000040] px-[50px]">
+    <nav className="w-full min-h-[106px] flex items-center justify-between gap-8 bg-white shadow-[0px_4px_8.3px_#00000040] px-[50px]">
       {/* Logo */}
       <Link
         href="/"
@@ -29,49 +28,38 @@ export const TopNavigationSection = (): JSX.Element => {
         />
       </Link>
       {/* Navigation Items */}
-      <div className="flex items-center ml-[353px] gap-[27px]">
+      <div className="flex flex-1 items-center justify-center gap-[27px]">
         {navItems.map((item) => (
-          item.href ? (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => setActiveItem(item.label)}
-              className={`w-[129px] h-6 flex items-center justify-center font-b1 text-[length:var(--b1-font-size)] font-[number:var(--b1-font-weight)] text-[#474747] text-center tracking-[var(--b1-letter-spacing)] leading-[var(--b1-line-height)] [font-style:var(--b1-font-style)] cursor-pointer hover:text-[#564130] transition-colors ${
-                activeItem === item.label ? "text-[#564130]" : ""
-              }`}
-              data-testid={`link-nav-${item.label.toLowerCase().replace(" ", "-")}`}
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <button
-              key={item.label}
-              onClick={() => setActiveItem(item.label)}
-              className={`w-[129px] h-6 flex items-center justify-center font-b1 text-[length:var(--b1-font-size)] font-[number:var(--b1-font-weight)] text-[#474747] text-center tracking-[var(--b1-letter-spacing)] leading-[var(--b1-line-height)] [font-style:var(--b1-font-style)] cursor-pointer hover:text-[#564130] transition-colors bg-transparent border-none outline-none ${
-                activeItem === item.label ? "text-[#564130]" : ""
-              }`}
-              data-testid={`button-nav-${item.label.toLowerCase().replace(" ", "-")}`}
-            >
-              {item.label}
-            </button>
-          )
+          <Link
+            key={item.label}
+            href={item.href}
+            className={`w-[129px] h-6 flex items-center justify-center font-b1 text-[length:var(--b1-font-size)] font-[number:var(--b1-font-weight)] text-center tracking-[var(--b1-letter-spacing)] leading-[var(--b1-line-height)] [font-style:var(--b1-font-style)] cursor-pointer hover:text-[#564130] transition-colors ${
+              location === item.href ? "text-[#564130]" : "text-[#474747]"
+            }`}
+            data-testid={`link-nav-${item.label.toLowerCase().replace(" ", "-")}`}
+          >
+            {item.label}
+          </Link>
         ))}
       </div>
       {/* Sign Up Button */}
-      <Button
-        className="ml-[39px] w-[131px] h-[60px] flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5240] border-none h-auto"
-        data-testid="button-sign-up"
-      >
-        <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
-          SIGN UP
-        </span>
-      </Button>
-      {/* Profile Icon */}
-      <img
-        className="w-[33px] h-[33px] ml-12 object-cover flex-shrink-0"
-        alt="Person"
-        src="/figmaAssets/person-12259244-1.png"
-      />
+      <div className="flex items-center gap-10 flex-shrink-0">
+        <Button
+          className="w-[131px] h-[60px] flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5240] border-none"
+          data-testid="button-sign-up"
+        >
+          <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
+            SIGN UP
+          </span>
+        </Button>
+        {/* Profile Icon */}
+        <img
+          className="w-[33px] h-[33px] object-cover flex-shrink-0"
+          alt="Person"
+          src="/figmaAssets/person-12259244-1.png"
+          data-testid="img-profile"
+        />
+      </div>
     </nav>
   );
 };

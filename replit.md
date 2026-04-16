@@ -27,3 +27,5 @@ This project is a Figma-imported React landing page running on Replit with an Ex
 
 - `/` renders the imported landing page.
 - `/bodycare` renders the Bodycare product listing page based on the Figma node `784:3405`.
+- `/skincare`, `/grooming`, `/haircare`, and `/giftsets` render category product listing pages from the navbar.
+- `/shop` is the continuous Shop Now page linked from the landing hero CTA.
