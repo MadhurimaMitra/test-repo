@@ -22,3 +22,8 @@ This project is a Figma-imported React landing page running on Replit with an Ex
 - The workflow is configured to run the Express/Vite app on port 5000.
 - The Tailwind CSS setup was adjusted to be compatible with Vite/Replit module loading.
 - Imported Figma assets are served from `client/public/figmaAssets`.
+
+## Pages
+
+- `/` renders the imported landing page.
+- `/bodycare` renders the Bodycare product listing page based on the Figma node `784:3405`.
