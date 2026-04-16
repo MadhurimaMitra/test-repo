@@ -1,4 +1,7 @@
-module.exports = {
+import typography from "@tailwindcss/typography";
+import tailwindcssAnimate from "tailwindcss-animate";
+
+export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}",
     "./src/**/*.{html,js,ts,jsx,tsx}",
     "app/**/*.{ts,tsx}",
@@ -76,6 +79,6 @@ module.exports = {
     },
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [tailwindcssAnimate, typography],
   darkMode: ["class"],
 };
