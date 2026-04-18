@@ -1,8 +1,13 @@
-import {
-  CategoryProductPage,
-  categoryPageConfigs,
-} from "./CategoryProductPage";
+import giftSetsReference from "@assets/gift_sets_1776516798111.png";
+import { FigmaReferencePage } from "./FigmaReferencePage";
 
 export const GiftSetsPage = (): JSX.Element => {
-  return <CategoryProductPage config={categoryPageConfigs.giftsets} />;
+  return (
+    <FigmaReferencePage
+      image={giftSetsReference}
+      alt="Clenfay gift sets page design"
+      width={3024}
+      height={7508}
+    />
+  );
 };

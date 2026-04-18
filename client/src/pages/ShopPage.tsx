@@ -1,81 +1,42 @@
-import { FooterContactSection } from "./sections/FooterContactSection";
-import { TopNavigationSection } from "./sections/TopNavigationSection";
-import {
-  ProductGrid,
-  categoryPageConfigs,
-  categoryProducts,
-} from "./CategoryProductPage";
-
-const featuredProducts = [
-  ...categoryProducts.bodycare.slice(0, 2),
-  ...categoryProducts.skincare.slice(0, 2),
-  ...categoryProducts.grooming.slice(0, 2),
-  ...categoryProducts.haircare.slice(0, 2),
-].map((product, index) => ({ ...product, id: index + 1 }));
+import { Link } from "wouter";
+import shopNowFirstReference from "@assets/shop_now_1_1776516798115.png";
+import shopNowSecondReference from "@assets/shop_now_2_1776516798116.png";
+import { FigmaScreenshotSegment, navLinks } from "./FigmaReferencePage";
 
 export const ShopPage = (): JSX.Element => {
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
-      <TopNavigationSection />
-      <main>
-        <section className="relative min-h-[620px] flex items-center bg-[#ebdfcd] overflow-hidden">
-          <img
-            className="absolute inset-0 w-full h-full object-cover opacity-75"
-            alt="Clenfay shop collection"
-            src="/figmaAssets/cover-3-1.png"
-            data-testid="img-shop-hero"
+    <main className="min-h-screen bg-white" data-testid="page-shop-now">
+      <div className="relative mx-auto w-full max-w-[1512px] bg-white">
+        <FigmaScreenshotSegment
+          image={shopNowFirstReference}
+          alt="Clenfay shop now page top sections"
+          width={3024}
+          top={0}
+          bottom={6150}
+        />
+        <FigmaScreenshotSegment
+          image={shopNowSecondReference}
+          alt="Clenfay shop now page lower sections"
+          width={3024}
+          top={1510}
+          bottom={6706}
+        />
+        {navLinks.map((link) => (
+          <Link
+            key={`${link.testId}-${link.href}`}
+            href={link.href}
+            aria-label={link.label}
+            data-testid={link.testId}
+            className="absolute block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#564130] focus-visible:outline-offset-2"
+            style={{
+              left: `${link.left}%`,
+              top: `${link.top}%`,
+              width: `${link.width}%`,
+              height: `${link.height}%`,
+            }}
           />
-          <div className="relative z-10 max-w-[620px] ml-auto mr-[9vw] px-8">
-            <h1
-              className="[font-family:'Poppins',Helvetica] font-medium text-white text-[56px] leading-[1.2] [text-shadow:0px_1px_3px_#00000040]"
-              data-testid="text-shop-heading"
-            >
-              Shop luxury self-care for every routine
-            </h1>
-            <p
-              className="mt-8 [font-family:'Poppins',Helvetica] text-white text-xl leading-8 max-w-[520px]"
-              data-testid="text-shop-description"
-            >
-              Explore bodycare, skincare, grooming, haircare, and gift sets in one continuous collection.
-            </p>
-          </div>
-        </section>
-        <section className="py-20 px-8">
-          <h2 className="[font-family:'Poppins',Helvetica] font-normal italic text-[#564130] text-[36px] leading-none text-center [text-shadow:0px_1px_3px_#00000040]">
-            FEATURED PRODUCTS
-          </h2>
-          <ProductGrid products={featuredProducts} slug="shop" />
-        </section>
-        <section className="pb-24 px-8">
-          <div className="max-w-[1170px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            {Object.values(categoryPageConfigs).map((config) => (
-              <a
-                key={config.slug}
-                href={`/${config.slug}`}
-                className="group block rounded-[28px] overflow-hidden bg-[#f6f1e8] shadow-[2px_2px_8px_#00000026]"
-                data-testid={`link-shop-${config.slug}`}
-              >
-                <div className="h-[300px] overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    alt={config.heroAlt}
-                    src={config.heroImage}
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-normal italic text-[#564130] text-[30px]">
-                    {config.title}
-                  </h3>
-                  <p className="mt-3 [font-family:'Poppins',Helvetica] text-[#474747]">
-                    {config.heading}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      </main>
-      <FooterContactSection />
-    </div>
+        ))}
+      </div>
+    </main>
   );
 };
