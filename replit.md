@@ -25,6 +25,6 @@ This project is a Figma-imported React landing page running on Replit with an Ex
 
 ## Pages
 
-- `/` renders the uploaded landing page reference image with clickable navigation overlays.
-- `/bodycare`, `/skincare`, `/grooming`, `/haircare`, and `/giftsets` render the uploaded full-page category design references with clickable navigation overlays.
-- `/shop` renders the uploaded Shop Now reference sections as one continuous page with clickable navigation overlays.
+- `/` renders a component-based landing page rebuilt from the uploaded design reference.
+- `/bodycare`, `/skincare`, `/grooming`, `/haircare`, and `/giftsets` render component-based category pages rebuilt from the uploaded design references.
+- `/shop` renders a component-based continuous Shop Now page rebuilt from the uploaded design references.

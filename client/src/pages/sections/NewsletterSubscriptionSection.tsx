@@ -16,10 +16,11 @@ export const NewsletterSubscriptionSection = (): JSX.Element => {
           <Input
             className="bg-transparent border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0 h-auto [font-family:'Poppins',Helvetica] font-medium italic text-[#828282] text-lg tracking-[0] leading-[normal] placeholder:text-[#828282] placeholder:italic placeholder:[font-family:'Poppins',Helvetica] placeholder:font-medium placeholder:text-lg"
             placeholder="Your Email Address"
+            data-testid="input-newsletter-email"
           />
         </div>
         {/* Subscribe button */}
-        <Button className="h-auto w-[154px] min-h-[60px] px-[34px] py-[18px] bg-[#564130] rounded-[13px] shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] [font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
+        <Button className="h-auto w-[154px] min-h-[60px] px-[34px] py-[18px] bg-[#564130] rounded-[13px] shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] [font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]" data-testid="button-newsletter-subscribe">
           SUBSCRIBE
         </Button>
       </div>
