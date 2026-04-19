@@ -77,6 +77,7 @@ async function createProducts() {
 createProducts();
 ```
 
+<<<<<<< HEAD
 Filename: stripeClient.ts (in the API server directory; also copy to the scripts directory)
 
 ```ts
@@ -158,6 +159,8 @@ export async function getStripeSync(): Promise<StripeSync> {
 }
 ```
 
+=======
+>>>>>>> 1b5df8f3505d7d041838d6c591eeaeb5bc53be6e
 Filename: webhookHandlers.ts (in the API server directory)
 
 ```ts
