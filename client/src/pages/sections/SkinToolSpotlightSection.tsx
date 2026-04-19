@@ -1,6 +1,16 @@
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
+import { useCart } from "@/context/CartContext";
 
 export const SkinToolSpotlightSection = (): JSX.Element => {
+  const [, navigate] = useLocation();
+  const { addItem } = useCart();
+
+  function handleAddToCart() {
+    addItem({ id: 901, category: "skincare", name: "Revival Derma Roller", price: "Rs 999", image: "/figmaAssets/dsc00279-1.png" });
+    navigate("/cart");
+  }
+
   return (
     <section className="flex w-full items-center justify-center gap-[70px] py-16 px-6">
       {/* Text content column */}
@@ -14,7 +24,7 @@ export const SkinToolSpotlightSection = (): JSX.Element => {
           <br />
           Visible reduction in acne scars, fine lines, wrinkles and age spots
         </p>
-        <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] mt-1">
+        <Button onClick={handleAddToCart} data-testid="button-dermaroller-add-cart" className="h-auto inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] mt-1">
           <span className="mt-[-0.50px] [font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
             ADD TO CART
           </span>

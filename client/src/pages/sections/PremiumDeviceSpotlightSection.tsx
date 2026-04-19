@@ -1,6 +1,16 @@
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
+import { useCart } from "@/context/CartContext";
 
 export const PremiumDeviceSpotlightSection = (): JSX.Element => {
+  const [, navigate] = useLocation();
+  const { addItem } = useCart();
+
+  function handleAddToCart() {
+    addItem({ id: 902, category: "skincare", name: "Ionic Facial Steamer", price: "Rs 1499", image: "/figmaAssets/frame-4-1.png" });
+    navigate("/cart");
+  }
+
   return (
     <section className="flex w-full items-center justify-center gap-[70px] px-6 py-8">
       {/* Product image with rounded bottom-right corner */}
@@ -25,7 +35,7 @@ export const PremiumDeviceSpotlightSection = (): JSX.Element => {
           than regular steam.
         </p>
         {/* Add to cart button */}
-        <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] [font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
+        <Button onClick={handleAddToCart} data-testid="button-steamer-add-cart" className="h-auto inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5040] [font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
           ADD TO CART
         </Button>
       </div>
