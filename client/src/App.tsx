@@ -14,6 +14,8 @@ import { ShopPage } from "@/pages/ShopPage";
 import { SkincarePage } from "@/pages/SkincarePage";
 import { ProductDetailPage } from "@/pages/ProductDetailPage";
 import { CartPage } from "@/pages/CartPage";
+import { CheckoutPage } from "@/pages/CheckoutPage";
+import { LoginPage } from "@/pages/LoginPage";
 import { CartProvider } from "@/context/CartContext";
 
 function Router() {
@@ -28,6 +30,8 @@ function Router() {
       <Route path="/giftsets" component={GiftSetsPage} />
       <Route path="/product/:category/:id" component={ProductDetailPage} />
       <Route path="/cart" component={CartPage} />
+      <Route path="/checkout" component={CheckoutPage} />
+      <Route path="/login" component={LoginPage} />
       <Route component={NotFound} />
     </Switch>
   );

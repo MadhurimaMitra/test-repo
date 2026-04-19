@@ -159,6 +159,7 @@ export function CartPage() {
                 </span>
               </div>
               <button
+                onClick={() => navigate("/checkout")}
                 className="w-full h-[50px] bg-[#3d2b1a] hover:bg-[#564130] transition-colors text-white [font-family:'Poppins',Helvetica] font-medium text-[13px] tracking-widest mt-1"
                 data-testid="button-checkout"
               >

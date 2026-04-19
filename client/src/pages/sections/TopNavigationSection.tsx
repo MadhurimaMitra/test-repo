@@ -47,14 +47,16 @@ export const TopNavigationSection = (): JSX.Element => {
       </div>
       {/* Sign Up Button + Cart + Profile */}
       <div className="flex items-center gap-6 flex-shrink-0">
-        <Button
-          className="w-[131px] h-[60px] flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5240] border-none"
-          data-testid="button-sign-up"
-        >
-          <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
-            SIGN UP
-          </span>
-        </Button>
+        <Link href="/login">
+          <Button
+            className="w-[131px] h-[60px] flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5240] border-none"
+            data-testid="button-sign-up"
+          >
+            <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center tracking-[0] leading-[normal]">
+              SIGN UP
+            </span>
+          </Button>
+        </Link>
         {/* Cart Icon */}
         <Link href="/cart" className="relative flex-shrink-0" data-testid="link-cart">
           <ShoppingCart className="w-7 h-7 text-[#564130] hover:text-[#6b5240] transition-colors" strokeWidth={1.5} />
