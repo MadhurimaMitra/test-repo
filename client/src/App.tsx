@@ -12,11 +12,13 @@ import { GroomingPage } from "@/pages/GroomingPage";
 import { HaircarePage } from "@/pages/HaircarePage";
 import { ShopPage } from "@/pages/ShopPage";
 import { SkincarePage } from "@/pages/SkincarePage";
+import { ProductDetailPage } from "@/pages/ProductDetailPage";
+import { CartPage } from "@/pages/CartPage";
+import { CartProvider } from "@/context/CartContext";
 
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
       <Route path="/" component={FinalLanding} />
       <Route path="/shop" component={ShopPage} />
       <Route path="/bodycare" component={BodycarePage} />
@@ -24,7 +26,8 @@ function Router() {
       <Route path="/grooming" component={GroomingPage} />
       <Route path="/haircare" component={HaircarePage} />
       <Route path="/giftsets" component={GiftSetsPage} />
-      {/* Fallback to 404 */}
+      <Route path="/product/:category/:id" component={ProductDetailPage} />
+      <Route path="/cart" component={CartPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -34,8 +37,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <CartProvider>
+          <Toaster />
+          <Router />
+        </CartProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

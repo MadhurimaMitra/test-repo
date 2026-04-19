@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { FooterContactSection } from "./sections/FooterContactSection";
 import { NewsletterSubscriptionSection } from "./sections/NewsletterSubscriptionSection";
 import { TopNavigationSection } from "./sections/TopNavigationSection";
+import { useLocation } from "wouter";
+import { useCart } from "@/context/CartContext";
 
 export type CategoryProduct = {
   id: number;
@@ -182,9 +184,31 @@ export function ProductCard({
   slug: string;
   large?: boolean;
 }): JSX.Element {
+  const [, navigate] = useLocation();
+  const { addItem } = useCart();
+
+  const category = slug.replace(/-combo$/, "").replace(/-explore$/, "");
+
+  function handleCardClick() {
+    navigate(`/product/${category}/${product.id}`);
+  }
+
+  function handleAddToCart(e: React.MouseEvent) {
+    e.stopPropagation();
+    addItem({
+      id: product.id,
+      category,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+    navigate("/cart");
+  }
+
   return (
     <article
-      className={`relative bg-white rounded-[3px] shadow-[1px_1px_4px_#00000033] p-[6px] pb-3 flex flex-col ${large ? "w-[325px]" : "w-[226px]"}`}
+      className={`relative bg-white rounded-[3px] shadow-[1px_1px_4px_#00000033] p-[6px] pb-3 flex flex-col cursor-pointer hover:shadow-md transition-shadow ${large ? "w-[325px]" : "w-[226px]"}`}
+      onClick={handleCardClick}
       data-testid={`card-${slug}-product-${product.id}`}
     >
       {product.badge && (
@@ -234,6 +258,7 @@ export function ProductCard({
         {product.price}
       </p>
       <button
+        onClick={handleAddToCart}
         className="mt-1 w-fit [font-family:'Poppins',Helvetica] font-medium italic text-[10px] text-[#564130] underline hover:text-[#6b5240] transition-colors"
         data-testid={`button-${slug}-add-cart-${product.id}`}
       >

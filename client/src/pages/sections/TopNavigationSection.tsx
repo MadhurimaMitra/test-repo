@@ -1,5 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const navItems = [
   { label: "BODYCARE", href: "/bodycare" },
@@ -11,6 +13,7 @@ const navItems = [
 
 export const TopNavigationSection = (): JSX.Element => {
   const [location] = useLocation();
+  const { totalCount } = useCart();
 
   return (
     <nav className="w-full min-h-[106px] flex items-center justify-between gap-8 bg-white shadow-[0px_4px_8.3px_#00000040] px-[50px]">
@@ -42,8 +45,8 @@ export const TopNavigationSection = (): JSX.Element => {
           </Link>
         ))}
       </div>
-      {/* Sign Up Button */}
-      <div className="flex items-center gap-10 flex-shrink-0">
+      {/* Sign Up Button + Cart + Profile */}
+      <div className="flex items-center gap-6 flex-shrink-0">
         <Button
           className="w-[131px] h-[60px] flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-[34px] py-[18px] bg-[#564130] rounded-[13px] overflow-hidden shadow-[0px_4px_7.8px_#00000040] hover:bg-[#6b5240] border-none"
           data-testid="button-sign-up"
@@ -52,6 +55,15 @@ export const TopNavigationSection = (): JSX.Element => {
             SIGN UP
           </span>
         </Button>
+        {/* Cart Icon */}
+        <Link href="/cart" className="relative flex-shrink-0" data-testid="link-cart">
+          <ShoppingCart className="w-7 h-7 text-[#564130] hover:text-[#6b5240] transition-colors" strokeWidth={1.5} />
+          {totalCount > 0 && (
+            <span className="absolute -top-2 -right-2 min-w-[18px] h-[18px] bg-[#564130] text-white rounded-full [font-family:'Poppins',Helvetica] text-[10px] font-semibold flex items-center justify-center px-1" data-testid="text-cart-count">
+              {totalCount}
+            </span>
+          )}
+        </Link>
         {/* Profile Icon */}
         <img
           className="w-[33px] h-[33px] object-cover flex-shrink-0"
