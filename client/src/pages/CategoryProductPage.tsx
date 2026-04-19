@@ -9,6 +9,7 @@ import { NewsletterSubscriptionSection } from "./sections/NewsletterSubscription
 import { TopNavigationSection } from "./sections/TopNavigationSection";
 import { useLocation } from "wouter";
 import { useCart } from "@/context/CartContext";
+import { allProducts } from "@/data/allProducts";
 
 export type CategoryProduct = {
   id: number;
@@ -74,12 +75,16 @@ function makeExploreProducts(): CategoryProduct[] {
   }));
 }
 
+function toPageProduct(p: { id: number; name: string; price: string; image: string; badge?: string }): CategoryProduct {
+  return { id: p.id, name: p.name, price: p.price, image: p.image, badge: p.badge };
+}
+
 export const categoryProducts: Record<string, CategoryProduct[]> = {
-  bodycare: makeProducts(8),
-  skincare: makeProducts(8),
-  grooming: makeProducts(8),
-  haircare: makeProducts(12),
-  giftsets: makeProducts(4),
+  bodycare:  allProducts.filter((p) => p.category === "bodycare").map(toPageProduct),
+  skincare:  allProducts.filter((p) => p.category === "skincare").map(toPageProduct),
+  grooming:  allProducts.filter((p) => p.category === "grooming").map(toPageProduct),
+  haircare:  allProducts.filter((p) => p.category === "haircare").map(toPageProduct),
+  giftsets:  allProducts.filter((p) => p.category === "giftsets").map(toPageProduct),
 };
 
 export const categoryPageConfigs: Record<string, CategoryPageConfig> = {
