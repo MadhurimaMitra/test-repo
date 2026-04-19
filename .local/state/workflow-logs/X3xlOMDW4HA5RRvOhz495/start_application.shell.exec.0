@@ -1,0 +1,46 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K4:00:06 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[replit-cartographer] Error processing /home/runner/workspace/client/src/pages/CategoryProductPage.tsx: TypeError: Cannot read properties of undefined (reading 'buildError')
+    at checkBlockScopedCollisions [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:665:27[90m)[39m
+    at registerBinding [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:813:16[90m)[39m
+    at registerDeclaration [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:751:14[90m)[39m
+    at ImportDeclaration [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:289:12[90m)[39m
+    at call [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:36:20[90m)[39m
+    at call [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:21:18[90m)[39m
+    at NodePath.visit [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:97:31[90m)[39m
+    at visitQueue [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:148:16[90m)[39m
+    at visitMultiple [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:99:17[90m)[39m
+    at visit [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:178:19[90m)[39m
+    at traverseNode [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/traverse-node.ts:208:17[90m)[39m
+    at traverse [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/index.ts:84:15[90m)[39m
+    at traverse [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/index.ts:163:13[90m)[39m
+    at crawl [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:1046:10[90m)[39m
+    at init [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/scope/index.ts:998:12[90m)[39m
+    at call [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:160:15[90m)[39m
+    at setContext [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:180:12[90m)[39m
+    at NodePath.pushContext [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/path/context.ts:275:8[90m)[39m
+    at visitQueue [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:137:21[90m)[39m
+    at visitSingle [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:109:19[90m)[39m
+    at visit [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/context.ts:180:19[90m)[39m
+    at traverseNode [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/traverse-node.ts:208:17[90m)[39m
+    at traverse [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/traverse[24m/src/index.ts:84:15[90m)[39m
+    at TransformPluginContext.handler [90m(/home/runner/workspace/[39mnode_modules/[4m@replit/vite-plugin-cartographer[24m/dist/index.mjs:153:11[90m)[39m
+    at async EnvironmentPluginContainer.transform [90m(/home/runner/workspace/[39mnode_modules/[4mvite[24m/dist/node/chunks/config.js:28796:14[90m)[39m
+    at async loadAndTransform [90m(/home/runner/workspace/[39mnode_modules/[4mvite[24m/dist/node/chunks/config.js:22669:26[90m)[39m
+[2m4:00:10 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Duplicate declaration "allProducts"
+[0m [90m 76 |[39m }
+ [90m 77 |[39m
+[31m[1m>[22m[39m[90m 78 |[39m [36mimport[39m { allProducts } [36mfrom[39m [32m"@/data/allProducts"[39m[33m;[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 79 |[39m
+ [90m 80 |[39m [36mfunction[39m toPageProduct(p[33m:[39m { id[33m:[39m number[33m;[39m name[33m:[39m string[33m;[39m price[33m:[39m string[33m;[39m image[33m:[39m string[33m;[39m badge[33m?[39m[33m:[39m string })[33m:[39m [33mCategoryProduct[39m {
+ [90m 81 |[39m   [36mreturn[39m { id[33m:[39m p[33m.[39mid[33m,[39m name[33m:[39m p[33m.[39mname[33m,[39m price[33m:[39m p[33m.[39mprice[33m,[39m image[33m:[39m p[33m.[39mimage[33m,[39m badge[33m:[39m p[33m.[39mbadge }[33m;[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36m/home/runner/workspace/client/src/pages/CategoryProductPage.tsx[39m
+[1G[0K⠙[1G[0K
